@@ -9,6 +9,9 @@ import ssl
 import urllib3
 import time
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
+
 from tqdm import tqdm
 import schedule
 import streamlit as st
@@ -37,7 +40,8 @@ options.add_argument('headless')
 
 # options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-driver = webdriver.Chrome('/Users/yoonkilee/Documents/chromedriver', options=options)
+driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+
 
 
 # %%
